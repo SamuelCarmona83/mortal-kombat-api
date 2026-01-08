@@ -42,6 +42,15 @@ class MortalKombatCharacter:
     def get_all(cls):
         return cls.all_characters
 
+    @classmethod
+    def find_by_name(cls, name):
+        for character in cls.all_characters:
+            if character.name == name:
+                return character
+        return None
+
+    def remove_character(self):
+        MortalKombatCharacter.all_characters.remove(self)
 
 
 def initialize_characters():
